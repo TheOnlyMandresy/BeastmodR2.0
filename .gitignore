@@ -1,2 +1,3 @@
-# Ignorer tous les fichiers de TODO/
+# Ignorer tous les fichiers de TODO/ Vendor/
 /TODO
+/vendor
