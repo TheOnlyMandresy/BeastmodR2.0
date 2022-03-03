@@ -1,0 +1,30 @@
+@use '../../libs/' as *;
+
+[class*="admin-"] {
+    .formSurround {
+        background-color: $colorMid;
+        padding: .3em;
+        border-radius: .3em;
+    }
+
+    .buttons {
+        display: flex;
+        gap: .5em;
+        justify-content: flex-end;
+    }
+
+    h1 { color: $h1Admin; }
+    h2 { color: $h2Admin; }
+    h3 {
+        font-size: $fontL;
+        padding: $emL;
+        text-align: center;
+    }
+
+    td { padding: $emM; }
+
+    [class*="box-"] {
+        background-color: $colorHead;
+        padding: $emL;
+    }
+}

@@ -1,0 +1,30 @@
+@use '../../../libs/' as *;
+
+.others-games {
+
+.all {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $emL;
+
+    .box-game {
+        h2 {
+            margin-bottom: initial;
+            border: initial;
+        }
+
+        .infos {
+            padding: $emL $emXL $emXL $emXL;
+            background-color: $colorMid;
+            border-radius: 0 0 $emM $emM;
+            
+            display: grid;
+            gap: $emL;
+
+            .desc { color: $black; }
+            .author { text-align: right; }
+        }
+    }
+}
+
+}

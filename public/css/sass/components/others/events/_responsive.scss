@@ -1,0 +1,29 @@
+@media only screen and (min-width: 600px) {
+others-.events {
+.right {
+
+.bests {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "first"
+        "second"
+        "third";
+}
+
+}
+}
+}
+
+@media only screen and (min-width: 768px) {
+[class*="others-"] .events {
+.right {
+
+.bests {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "second first third";
+}
+    
+}
+}
+}

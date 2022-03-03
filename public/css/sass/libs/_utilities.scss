@@ -1,0 +1,67 @@
+@use 'colors' as *;
+@use 'sizes' as *;
+
+@mixin bgMiddle {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@mixin center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin ellipse
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin blueLine
+{
+    border-style: solid;
+    border-color: $line;
+}
+
+@mixin glassBox
+{
+    border: 1px solid $line;
+    background-color: $body;
+    box-shadow: $shadowOut inset;
+}
+
+@mixin bgTransparent {
+    background-color: $opacity;
+    color: $white;
+}
+
+@function colorText($color, $dark, $light)
+{
+    @if(lightness($color) > 50%) {
+        @return $dark;
+    } @else {
+        @return $light;
+    }
+}
+
+@function trim-unit($value)
+{
+    @return $value / ($value * 0 * 1);
+}
+
+@function sizeConvertor($value, $font-rem)
+{
+    @return $value / trim-unit($font-rem) * 1rem;
+}
+
+@function deep-get($map, $name, $key) {
+    @each $code, $color in $map {
+        @if ($name == $code) {
+            @return nth($color, $key);
+        }
+    }
+    
+}

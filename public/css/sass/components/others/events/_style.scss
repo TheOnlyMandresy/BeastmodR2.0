@@ -1,0 +1,307 @@
+@use '../../../libs/' as *;
+.others-events {
+    // top
+.top {
+
+.box-title {
+    @include center;
+    background-position: center;
+    height: 100%;
+    margin: initial;
+    
+    h1 {
+        color: $white;
+    }
+}
+
+}
+
+    // left
+.left {
+
+.all {
+    display: grid;
+    gap: $emL;
+
+    .box-event {
+        display: flex;
+        gap: $emL;
+        background-color: $colorHead;
+        padding: $emXL;
+        & > .infos { width: 100%; }
+        & > .img { width: 75%; }
+
+        & > .infos {
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .title {
+                font-size: $fontL;
+                color: $black;
+            }
+            .date { font-size: $fontS; }
+        }
+
+        & > .img {
+            background-position: center;
+            border-radius: $emM;
+            border: 1px solid $line;
+            box-shadow: $shadowOut inset;
+        }
+    }
+}
+
+.box-infos {
+    background-color: $colorMid;
+    padding: $emXL;
+
+    display: grid;
+    grid-template-columns: minmax(0, 30%) auto auto;
+    gap: $emL;
+    grid-template-areas:
+        "l c d";
+        .link { grid-area: l; }
+        .countdown { grid-area: c; }
+        .dates { grid-area: d; }
+    
+    .link {
+        & > a::after {
+            content: '';
+            height: 30px; width: 30px;
+            margin-left: 10px;
+            background-image: url('/img/icons/2204__-0w5.png');
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        & > a.active::after {
+            filter: grayscale(80%);
+        }   
+    }
+    
+    .countdown {
+        @include center;
+        border-radius: $emL;
+        background-color: rgba($black, $alpha: .5);
+        color: $white;
+        text-align: center;
+        padding: $emXL;
+        word-break: break-word;
+    }
+
+    .dates {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: $emL;
+
+        & > p {
+            height: 100%;
+            background-color: $colorHead;
+            padding: $emL;
+            border-radius: $emM;
+            text-align: center;
+
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+    }
+}
+
+.box-content {
+    color: $black;
+    padding: $emXL;
+    background-color: $colorHead;
+}
+
+}
+
+    //right
+.right {
+
+.bests {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $emL;
+    grid-template-areas:
+        "first first"
+        "second third";
+    & > a:nth-child(1) { grid-area: first; }
+    & > a:nth-child(2) { grid-area: second; }
+    & > a:nth-child(3) { grid-area: third; }
+    
+    & > a:nth-child(1) > .box-best { background-position: -200px -136px; }
+    & > a:nth-child(2) > .box-best { background-position: -80px -134px; }
+    & > a:nth-child(3) > .box-best { background-position: -129px -184px; }
+    
+    & > a:nth-child(1) > .box-best > .img { background-position: 10px 10px, -200px, -200px; }
+    & > a:nth-child(2) > .box-best > .img { background-position: 130px 10px, 10px 10px, 69px 60px; }
+    & > a:nth-child(3) > .box-best > .img { background-position: 82px -41px, -39px -40px, 20px 10px; }
+
+    .box-best {
+        width: 100%;
+        border: 1px solid $line;
+        padding: $emXL;
+        overflow: hidden;
+        box-shadow: $shadowOut inset;
+
+        background-color: $colorHead;
+        background-repeat: no-repeat;
+        background-image: url(/img/events/allMighty.png);
+
+        .img {
+            position: absolute;
+            height: 100%; width: 100%;
+            top: 0; left: 0;
+            background-repeat: no-repeat;
+        }
+
+        .infos {
+            width: calc(100% - (64px + #{$emL}));
+            margin-left: calc(64px + #{$emL});
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: $emL;
+
+            .username {
+                padding: 0 $emL;
+                color: $white;
+                text-shadow: 1px 1px 1px $black;
+            }
+
+            .points {
+                font-size: $fontXL;
+                text-align: center;
+                background-color: $colorMid;
+                border-radius: $emM;
+                padding: $emL;
+                
+                display: flex;
+                flex-direction: column;
+
+                span { color: $black; }
+            }
+        }
+    }
+}
+
+.box-top {
+    .top {
+        padding: 0 $emXL $emXL $emXL;
+        border-radius: 0 0 $emM $emM;
+        display: grid;
+        gap: $emL;
+
+        .user {
+            display: flex;
+            gap: $emL;
+            background-color: $colorHead;
+            padding: $emL;
+            border-radius: $emM;
+            overflow: hidden;
+
+            .img {
+                height: 64px; width: 100%;
+                border-radius: $emM;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url('/img/events/top.png');
+                text-align: center;
+                border: 1px solid $line;
+                box-shadow: $shadowOut inset;
+            }
+            .username {
+                width: 100%;
+                line-height: 64px;
+            }
+            .points {
+                @include center;
+                width: 75%;
+                color: $black;
+                background-color: $colorMid;
+                border-radius: $emM;
+            }
+        }
+
+        & > *:nth-child(4) .img,
+        & > *:nth-child(7) .img,
+        & > *:nth-child(6) .img { background-position: -590px -280px; }
+        & > *:nth-child(2) .img,
+        & > *:nth-child(9) .img { background-position: -810px -700px; }
+        & > *:nth-child(3) .img,
+        & > *:nth-child(8) .img { background-position: -560px -560px; }
+    }
+}
+
+.box-rewards {
+    h2 {
+        margin-bottom: initial;
+        border: initial;
+    }
+
+    .content {
+        color: $black;
+        background-color: $colorMid;
+        padding: $emL $emXL;
+    }
+
+    .rewards {
+        padding: 0 $emXL $emL $emXL;
+        &:last-child { padding: 0 $emXL $emXL $emXL; }
+
+        border-top: 1px solid $line;
+        
+        .price,
+        .participate {
+            background-color: $colorMid;
+            border-radius: $emM;
+            margin-top: $emL;
+            // border: 1px solid $line; // Avec ou Sans ??
+        }
+
+        .price {
+            display: flex;
+            overflow: hidden;
+            background-color: $colorHead;
+
+            .classement {
+                @include center;
+                width: 60px;
+                font-size: $fontL;
+                background-color: $colorHead;
+            }
+
+            .toWin,
+            .winner {
+                padding: $emL;
+            }
+
+            .toWin { width: 100%; color: $black; }
+            .winner {
+                @include center;
+                font-size: $fontS;
+                background-position: center right;
+                background-repeat: no-repeat;
+                background-color: $colorMid;
+                color: $white;
+                width: 250px;
+                text-shadow: 1px 1px 1px $black;
+            }
+        }
+    }
+
+    .participate {
+        padding: $emL $emXL $emXL $emXL;
+        background-color: $colorHead;
+        border-radius: 0 0 $emM $emM;
+        border-top: 1px solid $line;
+    }
+}
+
+}
+
+}

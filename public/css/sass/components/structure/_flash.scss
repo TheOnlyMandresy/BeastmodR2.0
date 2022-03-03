@@ -1,0 +1,30 @@
+@use '../../libs' as *;
+
+.flash {
+    z-index: 9;
+    width: 100vw; height: 0vh;
+    position: fixed;
+    overflow: hidden;
+    
+    @include center;
+
+    animation-name: flashVisibility;
+    animation-duration: 2s;
+    
+    [class*="content-"] {
+        padding: 1em;
+
+        animation-name: flashPopUp;
+        animation-duration: 2s;
+    }
+
+    @each $name, $color in $flashColors {
+        .content-#{$name} {
+            background: $color!important;
+
+            @if ($name == 'infos') {
+                color: white;
+            }
+        }
+    }
+}

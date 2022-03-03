@@ -1,0 +1,47 @@
+@use '../../libs/' as *;
+
+.others-quests .left {
+
+.box-quests {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px;
+    gap: .3em;
+
+    p {
+        display: grid;
+        
+        & > .title {
+            font-size: .8em;
+            font-weight: bold;
+            margin-top: .5em;
+        }
+
+        & > .reward { font-size: .9em; }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: .3em;
+    }
+}
+
+}
+
+.others-quests .right {
+
+.box-quests {
+    .quests {
+        display: grid;
+        gap: .3em;
+
+        .quest .buttons {
+            display: flex;
+            justify-content: center;
+            gap: .3em;
+        }
+    }
+}
+
+}

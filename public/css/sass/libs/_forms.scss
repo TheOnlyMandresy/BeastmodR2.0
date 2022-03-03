@@ -1,0 +1,36 @@
+@use 'colors' as *;
+@use 'sizes' as *;
+@use 'fonts' as *;
+
+form {
+
+.formSurround {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+        margin-bottom: $emL;
+    }
+}
+
+textarea {
+    padding: $emL;
+    resize: vertical;
+    border-radius: $emM;
+    min-height: 50px;
+}
+
+input { z-index: 1; }
+
+input,
+select {
+    padding: $emL;
+    border-radius: $emM;
+}
+
+label {
+    padding-bottom: $emL;
+    font-weight: $ftBold;
+}
+
+}

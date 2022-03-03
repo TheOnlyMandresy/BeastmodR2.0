@@ -1,0 +1,188 @@
+@use '../../libs' as *;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    color: $midColor;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    list-style-type: none;
+    font-family: 'Sora',Helvetica,Arial,sans-serif;
+    position: relative;
+    image-rendering: pixelated;
+    font-weight: normal;
+
+    ::-webkit-scrollbar {
+        width: 17px;
+        box-sizing: border-box;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: $emM;
+        border: 1px solid #535353;
+        box-shadow: inset 0px -1px 1px rgba(0,0,0,0.2);
+        background-color: #ffffff;
+        background: #fff;
+    }
+    ::-webkit-scrollbar-thumb:active {
+        background: #CCCCCC;
+    }
+    ::-webkit-scrollbar-track-piece {
+        border-radius: $emM;
+        background-color: #d9d9d9;
+        box-shadow: inset 1px 1px 1px rgba(0,0,0,0.2);
+    }
+}
+
+html,
+body,
+[class*="template"] {
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-color: $body;
+    font-size: $font-rem;
+    padding-top: $emL;
+}
+
+.blur {
+    position: absolute;
+    height: 100%; width: 100%;
+    background: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(4px);
+}
+
+#loading {
+    img { transform: scale(.95); width: 100%; }
+    z-index: 9999;
+    position: fixed;
+    height: 100vh; width: 100vw;
+    top: 0;
+    
+    @include center;
+
+    background-color: rgba(0,0,0,.95);
+
+    &.loading {
+        img {
+            animation-name: loadPop, heartbeat;
+            animation-duration: .4s, 1s;
+            animation-delay: 0s, 1s;
+            animation-iteration-count: 1, infinite;
+        }   
+    }
+
+    &.loaded {
+        img {
+            opacity: 0;
+            animation-name: loadEnd;
+            animation-duration: .4s;
+            animation-delay: 0;
+            animation-iteration-count: 1;
+            transition-delay: 1s; animation-delay: 1s;
+            transition: .5s;
+        }
+    }
+}
+
+[class*="template"] {
+    width: 100%;
+    margin: auto;
+    display: grid;
+
+    &:not(.templateOne) { grid-template-columns: 3fr 2fr; }
+    & > * { padding: 0 $emM; }
+    & > .top { grid-area: top; }
+    & > .left { grid-area: left; }
+    & > .right { grid-area: right; }
+}
+
+.templateTwo {
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "left left"
+    "right right";
+}
+
+.templateThree {
+    grid-template-rows: 100px auto;
+    grid-template-areas: 
+    "top top"
+    "left left"
+    "right right";
+
+    .top > * { height: 100%; }
+}
+
+[class*="box-"] {
+    box-shadow: $shadowOut;
+    border-radius: $emL;
+
+    & > * { border-radius: $emM; }
+
+    &.alert {
+        box-shadow: none;
+        background-color: #4e6934;
+        box-shadow: 5px 7px 8px rgb(183 183 183 / 36%) inset;
+        
+        p {
+            color: white;
+            text-shadow: 1px 1px 2px rgb(183 183 183 / 36%);
+        }
+    }
+}
+.box-content > .content {
+    overflow: hidden; 
+    word-break: break-word;
+}
+
+h1 { font-weight: $ftBolder; }
+h2 { padding: $emXL; font-size: $ftSmall; }
+
+.title * {
+    color: $colorTitle;
+    font-weight: $ftBolder;
+}
+
+.hover:hover { opacity: .6; transition: .4s ease; cursor: pointer; }
+.buttons-container {
+    @include center;
+    @include glassBox;
+    border-radius: $emM;
+    padding: $emXL;
+    gap: $emM;
+}
+.margin { margin-bottom: $emL }
+.padding { padding: $emXL; }
+
+.divided-2 { @include displayDivided(2); }
+.divided-3 { @include displayDivided(3); }
+.divided-4 { @include displayDivided(4); }
+.divided-2-forced { @include displayDivided(2, true); }
+.divided-3-forced { @include displayDivided(3, true); }
+.divided-4-forced { @include displayDivided(4, true); }
+
+.box-about {
+    background-color: $colorMid;
+
+    p { padding: 0 $emXL; }
+    p:last-child { padding-bottom: $emXL; }
+    
+    .question {
+        display: block;
+        margin: $emL 0 $emM $emXL;
+        color: $black;
+        font-weight: $ftBolder;
+    }
+}
+
+.box-changelog {
+    background-color: $white;
+}

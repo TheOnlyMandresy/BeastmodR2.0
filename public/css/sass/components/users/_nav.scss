@@ -1,0 +1,288 @@
+@use '../../libs' as *;
+
+.nav-user {
+    display: grid;
+
+    .logged,
+    .login {
+        z-index: 1;
+        overflow: hidden;
+        height: 35px; width: 50px;
+        border-radius: $emM;
+        background-color: $navMain;
+        background-position: center;
+        cursor: pointer;
+    }
+
+    .logged { background-position: center; }
+    
+    &:hover {
+        
+        .drop {
+            padding: $emL $emL $emXL $emL;
+            width: auto; height: auto;
+            transition: width .4s ease-out, height .4s;
+        }
+
+        #login {
+            width: auto; height: auto;
+            padding: $emL $emL $emXL $emL;
+            transition: width .4s ease-out, height .4s;
+
+            .box {
+                height: 100%;
+                padding: $emXL;
+            }
+        }
+    }
+}
+
+.nav-user .drop {
+    z-index: 0;
+    position: absolute;
+    height: 0; width: 0;
+    bottom: -.5em; right: -.5em;
+    border-radius: $emL;
+    background-color: $navPrincial;
+    border-bottom: 40px solid $navPrincial;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: $emL;
+    overflow: hidden;
+
+    & > *:not(a),
+    & > *:not(div) > div {
+        height: 35px; width: 50px;
+        border-radius: $emM;
+        background-color: $navMain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: grayscale(90%);
+        
+        &:hover { cursor: pointer; filter: grayscale(0%); }
+        &:hover:not(.open, .logout, .nav-admin) { background-color: darken($navMain, 10%); }
+        &.logout:hover { background-color: darken($navLogout, 10%); }
+        &.nav-admin:hover { background-color: darken($navAdmin, 10%); }
+    }
+
+    .open { filter: grayscale(0%); }
+
+    .logout { background-color: $navLogout; }
+    .nav-admin { background-color: $navAdmin; }
+
+    .parameters { background-image: url('/img/navs/user/params.png'); }
+    .support { background-image: url('/img/navs/user/help.png'); }
+    .logout { background-image: url('/img/navs/user/logout.gif'); }
+    .nav-admin { background-image: url('/img/navs/admin/main.png'); }
+}
+
+.nav-user #login {
+    z-index: 0;
+    position: absolute;
+    height: 0; width: 0;
+    right: -.5em; bottom: -.5em;
+    overflow: hidden;
+    border-bottom: 40px solid $navPrincial;
+    border-radius: $emL;
+    padding: 0;
+    background-color: $navPrincial;
+
+    .box {
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: $navMain;
+        border-radius: $emM;
+    }
+
+    input:not(input[type="submit"]) { @include bgTransparent; }
+
+    .divided-2 > p { margin-bottom: initial; }
+}
+
+#myNavbar {
+    z-index: 10;
+    width: 100vw; height: 0vh;
+    top: 0; left: 0;
+    position: fixed;
+    overflow: hidden;    
+    @include center;
+
+    .blur { opacity: 0; }
+
+    .box-myInfos {
+        width: 0;
+        background-color: $colorHead;
+        opacity: 0;
+
+        .infos {
+            padding: $emL;
+            height: 100%;
+
+            & > div > div:not(:first-child) { margin-top: $emL; }
+            & > div > div:not(.notifications) { border-radius: $emM; }
+
+            .standalone {
+                height: fit-content;
+                display: flex;
+                background-color: $body;
+                height: 160px;
+                overflow: hidden;
+
+                .avatar {
+                    padding: $emL;
+                    background-color: $colorHead;
+                    filter: grayscale(80%);
+
+                    &:hover { filter: grayscale(0%); }
+
+                    img {
+                        width: 300%;
+                        right: 70px;
+                        bottom: 20px;
+                    }
+                }
+
+                .about {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    @include glassBox;
+                    gap: $emM;
+                    padding: $emL;
+                    border-radius: $radSright;
+
+                    & p {
+                        background-color: $colorMid;
+                        padding: $emXL;
+                        border-radius: $emM;
+
+                        span {
+                            font-size: $fontS;
+                            color: $h1;
+                        }
+                    }
+
+                    .divided-2-forced {
+                        p {
+                            overflow: hidden;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                height: 50px; width: 50px;
+                                top: -3px; right: $emL;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+                        }
+
+                        p:nth-child(1) {
+                            background-color: $colorVIP;
+                            color: $white;
+
+                            &::after { background-image: url("/img/icons/vip.png"); }
+                        }
+
+                        p:nth-child(2) {
+                            background-color: $colorCoin;
+                            color: $white;
+
+                            &::after { background-image: url("/img/icons/beastCoin.png"); }
+                        }
+                    }
+                }
+            }
+
+            .alertes {
+                max-height: 200px;
+                background-color: deep-get($bubbleColors, "manager", 2);
+                padding: $emXL;
+                display: grid;
+                grid-template-columns: auto 70px;
+                gap: $emL;
+                align-items: center;
+                border: 1px solid darken(deep-get($bubbleColors, "manager", 2), 10%);
+
+                .text {
+                    overflow-x: auto;
+                    height: 100%;
+                    color: deep-get($bubbleColors, "manager", 3);
+                    span { font-size: $fontS; display: block; }
+                }
+                .icon {
+                    height: 100%;
+                    background-image: url("/img/icons/staff.png");
+                    background-repeat: no-repeat;
+                    background-position: center 16px;
+                    border-radius: 50%;
+                    background-color: #ac2828;
+                    border: 2px solid darken(deep-get($bubbleColors, "manager", 2), 15%);
+                    box-shadow: 5px 5px 5px darken(deep-get($bubbleColors, "manager", 3), 10%) inset;
+                    height: 70px;
+                    padding-top: 66px;
+                    text-align: center;
+                    font-size: $fontS;
+                    color: $blueRoyal;
+                }
+            }
+
+            .notifications {
+                flex-direction: column;
+                justify-content: initial;
+                height: 300px;
+                overflow-x: auto;
+                
+                a { width: 100%; }
+                a > div {
+                    padding: $emL;
+                    background-color: $colorMid;
+                    border-radius: $emM;
+
+                    display: grid;
+                    grid-template-columns: 50px auto 100px;
+                    gap: $emM;
+
+                    & > *:nth-child(1),
+                    & > *:nth-child(3) { text-align: center; }
+                }
+            }
+
+            .quests-progress,
+            .palmares {
+                & > div {
+                    border-radius: $emM;
+                    background-color: $colorMid;
+                    padding: $emXL;
+                }
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: $emL; right: $emM;
+        width: 50px; height: 50px;
+        z-index: 1;
+        cursor: pointer;
+        background-image: url("/img/navs/personnal/close.png");
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &.open {
+        height: 100vh;
+
+        .blur {
+            opacity: 1;
+            transition: .3s;
+        }
+
+        .box-myInfos {
+            opacity: 1;
+            width: 1000px;
+            transition-delay: .3s;
+            transition: .3s;
+        }
+    }
+}

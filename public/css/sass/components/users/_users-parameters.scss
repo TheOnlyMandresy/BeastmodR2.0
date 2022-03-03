@@ -1,0 +1,67 @@
+@use '../../libs/' as *;
+
+.users-param {
+    label {
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    [class*="box-"] {
+        background-color: $colorHead;
+        padding: $emXL;
+    }
+}
+
+.users-param .left {
+    .box-background {
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            justify-content: space-evenly;
+
+            input[type=file] { background-color: white; }
+        }
+
+        .background {
+            height: 250px;
+            border-radius: .5em;
+            background-position: center;
+        }
+    }
+
+    .box-bubbles {
+        h2::after {
+            content: "V";
+            position: absolute;
+            right: 1em;
+            font-weight: 500;
+            transform: rotate(180deg);
+            
+            transition: transform .3s;
+        }
+    
+        h2.open::after {
+            transform: rotate(0deg);
+        }
+        
+        a {
+            opacity: .6;
+            height: 70px
+        }
+
+        a:hover,
+        .active {
+            opacity: 1;
+        }
+
+        [class*="bubbles-"]:not(h2) {
+            display: flex;
+            gap: $emM;
+            overflow-x: auto;
+
+            .bubble { width: 150px; }
+        }
+    }
+}

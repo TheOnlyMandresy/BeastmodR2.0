@@ -1,0 +1,14 @@
+@use '../../libs/' as *;
+
+.users-register .box-register {
+    padding: $emXL;
+    background-color: $colorHead;
+
+    .buttons-container { margin-top: $emXL; }
+}
+
+.users-register .box-infos {
+    background-color: $colorMid;
+    text-align: center;
+    padding: $emXL;
+}

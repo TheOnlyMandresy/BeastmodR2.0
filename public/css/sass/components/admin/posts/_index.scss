@@ -1,0 +1,29 @@
+@forward 'posts-new';
+
+.admin-posts-index {
+    .box-requests {
+        max-height: 400px;
+        overflow-y: auto;
+
+        .requests {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: .3em;
+
+            background-color: #dbdbdb;
+            padding: .3em;
+            border-radius: .5em;
+        }
+
+        .request {
+            display: flex;
+            flex-direction: column;
+            padding: .5em;
+            border-radius: .3em;
+            background-color: #ebebeb;
+
+            .title { font-size: .8em; }
+            span:last-child { text-align: right; }
+        }
+    }
+}

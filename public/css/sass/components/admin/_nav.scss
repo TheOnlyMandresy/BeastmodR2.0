@@ -1,0 +1,94 @@
+@use '../../libs' as *;
+
+$gradient: radial-gradient(circle, rgba(255,235,126,1) 25%, rgba(255,215,0,1) 52%, rgba(255,255,255,0) 100%);
+
+.navs .nav-admin {
+    .section-admin {
+        z-index: 1;
+        background-color: $navAdmin;
+        border-radius: $emM;
+        padding: 0 $emL;
+        min-width: 50px; height: 35px; line-height: 35px;
+        cursor: default;
+        @include bgMiddle;
+    }
+
+    .panel-admin {
+        z-index: 0;
+        position: absolute;
+        height: 0; width: 0;
+        bottom: -.5em; right: calc(-50px - 1.5em); left: auto;
+        border-radius: $emL;
+        background-color: darken($navAdmin, 10%);
+        border-bottom: 40px solid darken($navAdmin, 10%);
+        display: grid;
+        grid-template-columns: 150px 50px;
+        gap: $emXL;
+        overflow: hidden;
+    }
+
+    .panel-admin .options {
+        [class*="options-"] {
+            width: 0; height: 0;
+            overflow: hidden;
+        }
+
+        .open {
+            width: auto; height: auto;
+            transition: .3s;
+            display: grid;
+            gap: $emM;
+        }
+
+        li {
+            padding: $emM;
+            border-radius: $emM;
+            background-color: $navMain;
+
+            &.current { background-color: lighten($navMain, 70%); cursor: default; }
+            &:hover:not(.current) { background-color: darken($navMain, 10%); }
+        }
+    }
+
+    .panel-admin .sections {
+        display: grid;
+        gap: $emL;
+
+        li {
+            height: 35px;
+            background-color: $navMain;
+            border-radius: $emM;
+            filter: grayscale(90%);
+        }
+
+        [class*="section-"] {
+            background-position: center;
+            background-repeat: no-repeat;
+            &.open { background-color: $navSelected; filter: grayscale(0%); }
+            &:hover:not(.open) { background-color: darken($navMain, 10%); cursor: pointer; filter: grayscale(0%); }
+        }
+        .section-index { background-image: url('/img/navs/main/main.gif'); }
+        .section-posts { background-image: url('/img/navs/main/news.gif'); }
+        .section-others { background-image: url('/img/navs/main/games.gif'); }
+        .section-community { background-image: url('/img/navs/main/search.png'); }
+        .section-website { background-image: url('/img/navs/main/quests.png'); }
+        
+    }
+
+    &:hover .panel-admin {
+        padding: $emL $emL $emXL $emL;
+        width: auto; height: auto;
+        transition: width .4s ease-out, height .4s;
+    }
+}
+
+.navs .nav-admin.inWebsite {
+    .section-admin { background-image: url(/img/navs/admin/main.png), $gradient; }
+    .panel-admin { right: auto; left: -11px; }
+}
+
+.navs ~ *.inAdmin + * {
+    background-color: darken($navAdmin, 10%);
+
+    &.nav-user > .drop { background-color: darken($navAdmin, 10%); border-color: darken($navAdmin, 10%); }
+}

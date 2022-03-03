@@ -1,0 +1,441 @@
+@use '../../libs/' as *;
+@use 'animations/posts-read';
+
+    // Index
+.posts-index .left {
+    
+.all {
+    display: grid;
+    gap: $emL;
+
+    .box-post {
+        display: flex;
+        gap: $emL;
+        background-color: $colorHead;
+        padding: $emXL;
+        & > .infos { width: 100%; }
+        & > .img { width: 75%; }
+
+        & > .infos {
+            display: flex;
+            align-content: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .title {
+                font-size: $fontL;
+                color: $black;
+            }
+            .teaser { font-size: $fontS; }
+        }
+
+        & > .img {
+            background-position: center;
+            border-radius: $emM;
+        }
+    }
+}
+
+}
+
+.posts-index .right {
+
+.box-categories {
+
+    .categories {
+        padding: 0 $emXL $emXL $emXL;
+        display: grid;
+        gap: $emL;
+
+        [class*="category-"] {
+            display: flex;
+            gap: $emL;
+            border-radius: $emM;
+            background-color: $colorMid;
+            padding: $emL;
+
+            .img,
+            .name {
+                width: 100%;
+            }
+            .name {
+                height: 100%;
+                line-height: 50px;
+                font-size: $fontL;
+            }
+        }
+        .category-all > .img { background-image: url('/img/posts-sections/all.png'); }
+        .category-tutoriel > .img { background-image: url('/img/posts-sections/tutoriel.png'); }
+        .category-hotel > .img { background-image: url('/img/posts-sections/hotel.jpg'); }
+        .category-site > .img { background-image: url('/img/posts-sections/site.png'); }
+        .category-chroniques > .img { background-image: url('/img/posts-sections/chroniques.png'); }
+
+        .category-all > .img { background-position: center; }
+        .category-tutoriel > .img { background-position: -330px 120px; }
+        .category-hotel > .img { background-position: center; }
+        .category-site > .img { background-position: center; }
+        .category-chroniques > .img { background-position: -28px -50px; }
+    }
+}
+
+}
+
+    // read
+.posts-read .left {
+
+
+.infos {
+    background-color: transparent;
+    min-height: 100px; // responsive 170px
+    display: grid;
+    gap: $emL;
+    margin-bottom: $emL;
+
+    &.two { grid-template-columns: 1fr 100px; }
+    &.three { grid-template-columns: 1fr repeat(2, 100px); }
+
+    .box-infos {
+        background-position: center right;
+        display: flex;
+
+        .box-img {
+            box-shadow: initial;
+            background-color: $body;
+            width: 100px;
+            margin: $emXL;
+
+            box-shadow: 0 0 0 1px $line inset, 0 0 0 0.3em $white inset, 0 0 0 5px $line inset, $shadowOut inset;
+    
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .infos {
+        $textShadow: 1px 1px 1px $black;
+        
+            width: 100%;
+
+            .title {
+                font-size: $fontXL;
+                padding: $emL;
+                color: $white;
+                text-align: center;
+                text-shadow: $textShadow;
+                font-weight: $ftBolder;
+            }
+            
+            .author {
+                display: flex;
+                flex-direction: column;
+                right: $emXL;
+                margin-left: $emXL;
+            }
+            .author > span { text-shadow: $textShadow; }
+            .author > .text { color: darken($white, 30%); }
+            .author > .username { color: $white; }
+
+            .corrector {
+                padding: $emM $emL $emM calc(2 * #{$emXL});
+                position: absolute;
+                right: 5px; bottom: 5px;
+                border-radius: $emS;
+                background-color: rgba(0,0,0,.5);
+            }
+            .corrector > img {
+                position: absolute;
+                left: 0;
+                top: -1px;
+            }
+            .corrector > .text { color: darken($white, 20%); }
+            .corrector > .username { color: $white; }
+        }
+    }
+
+    .box-create,
+    .box-edit {
+        border: 1px $line solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .box-create { background-color: $colorMid; }
+
+    .box-create > p,
+    .box-edit > p {
+        padding: $emM;
+        color: $midColor;
+        font-size: $fontS;
+    }
+    .box-create > p:nth-child(2),
+    .box-edit > p:nth-child(2) {
+        font-size: $fontM;
+        color: $black;
+    }
+
+    .box-create::before,
+    .box-edit::before {
+        content: '';
+        height: 95px;
+        filter: drop-shadow(4.5px 9px 9px rgb(156 208 231 / 36%));
+        top: 25%; right: 5%;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        opacity: .2;
+    }
+
+    .box-create::before {
+        width: 85px;
+        background-image: url(/img/icons/clock.png);
+    }
+
+    .box-edit::before {
+        width: 60px;
+        background-image: url(/img/icons/hourglass.png);
+    }
+}
+
+.box-content {
+    background-color: $colorHead;
+    padding: $emXL;
+    color: $black;
+}
+
+.see {
+    .box-category {
+        display: flex;
+        padding: $emXL;
+        justify-content: space-between;
+        border-bottom: 1px $line solid;
+        background-color: $colorMid;
+        overflow: hidden;
+    }
+
+    .new {
+        display: flex;
+        justify-content: space-between;
+        padding: $emL 0 0 0;
+        gap: $emL;
+
+        & > a { width: 100%; }
+    }
+    
+    .random {
+        height: 80px;
+        display: flex;
+        gap: $emL;
+
+        .img {
+            height: 100%;
+            width: 80px;
+            border-radius: $emM;
+            background-position: center;
+        }
+
+        .texts {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .text { font-size: $ftSmall; }
+        }
+    }
+
+    .buttons-container { 
+        display: grid;
+        padding: 0 $emXL;
+    }
+    .buttons-container .next img { transform: rotate(180deg); }
+
+    .box-new {
+        height: 130px;
+        border-radius: $emM;
+        padding: $emXL;
+        background-position: center;
+
+        .texts {
+            @include center;
+            flex-direction: column;
+            padding: $emXL;
+            background-color: $white;
+            border-radius: $emS;
+            text-align: center;
+
+            .text { font-size: $ftSmall; }
+        }
+    }
+}
+
+}
+
+.posts-read .right {
+
+.comments {
+ 
+    .comment {
+        [class*="bubble"] { margin-bottom: $emL; }
+        [class*="bubble"]:last-child { margin-bottom: initial; }
+
+        .answer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: $emL;
+            height: 0;
+            overflow: hidden;
+
+            p {
+                width: fit-content;
+                font-size: .8em;
+            }
+        }
+        &:hover .answer {
+            height: 100%;
+            margin-bottom: $emL;
+        }
+
+        [class*="dropdown-"] { overflow: hidden; }
+        .responses {
+            border-top: 1px solid $line;
+            border-radius: $emL;
+            background-color: $opacity;
+            padding: $emXL;
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: $emM;
+            margin-bottom: $emL;
+
+            [class*="bubble"] { margin-bottom: initial; }
+        }
+    }
+
+    .box-send {
+        border-radius: $emL;
+        overflow: hidden;
+        & > * { border-radius: initial; }
+
+        .pagination {
+            background-color: $colorMid;
+            padding: $emL $emXL $emL $emXL;
+    
+            .buttons,
+            .pages {
+                gap: 0.3em;
+                display: flex;
+            }
+    
+            .pages { margin-top: $emM; }
+            .center { @include center; }
+            .prev img,
+            .last img { transform: rotate(180deg); }
+            .prev,
+            .last { text-align: right; }
+        }
+    
+        .pagination > * > * { width: 100%; }
+    
+        .send {
+            padding: $emXL;
+            background-color: deep-get($buttonColors, "success", 1);
+
+            .formSurround { margin: inherit; }
+            textarea { @include bgTransparent; }
+            .button-success { @include center; }
+        }
+    }
+
+    form {
+        .form {
+            display: grid;
+            gap: $emM;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+        }
+
+        .endAnswerTo {
+            gap: $emL;
+            display: flex;
+            align-items: center;
+            padding: $emM;
+            background-color: lighten(deep-get($buttonColors, "danger", 1), 5%);
+            border-radius: 2em;
+            font-size: $ftSmall;
+            margin-bottom: $emL;
+            width: fit-content;
+
+            p {
+                color: $white;
+                padding: 0 $emXL 0 0;
+                font-weight: $ftBold;
+            }
+        }
+    }
+}
+
+}
+
+.top > .comments {
+    .comments {
+        display: grid;
+        gap: $emL;
+        padding: 0 0 $emL 0;
+    }
+    .comments:last-child { padding: 0 $emXL $emL $emXL; }
+
+    .box-comments {
+        padding: 0;
+        overflow: hidden;
+        & > * { border-radius: 0; }
+    }
+    
+    .pagination {
+        border-top: 1px $line solid;
+        background-color: $colorMid;
+        padding: $emL $emXL $emL $emXL;
+
+        .buttons,
+        .pages {
+            gap: 0.3em;
+            display: flex;
+        }
+
+        .pages { margin-top: $emM; }
+        .center { @include center; }
+        .prev img,
+        .last img { transform: rotate(180deg); }
+        .prev,
+        .last { text-align: right; }
+    }
+
+    .pagination > * > * { width: 100%; }
+
+    .send {
+        padding: $emXL;
+        background-color: $white;
+
+        form {
+            display: grid;
+            align-items: center;
+            gap: $emM;
+            grid-template-columns: 1fr 60px;
+        }
+
+        p:last-child {
+            height: 100%;
+            justify-content: center;
+            background-color: $body;
+            box-shadow: $shadowOut inset;
+            border-radius: $emM;
+        }
+
+        .button-success { @include center; }
+
+        p:first-child { margin-bottom: 0; }
+        textarea { min-height: 60px; }
+        &:nth-child(3) { border-top: 1px $line solid; }
+    }
+}

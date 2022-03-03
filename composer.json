@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Systeme\\": "src/Systeme"
+        }
+    },
+    "require": {
+        "chriskonnertz/bbcode": "^1.1"
+    }
+}

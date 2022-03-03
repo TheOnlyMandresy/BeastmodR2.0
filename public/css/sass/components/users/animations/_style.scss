@@ -1,0 +1,12 @@
+@use '../../../libs' as *;
+
+.nav-user #login.open {
+    display: block;
+
+    .box {
+        bottom: 0;
+        opacity: 1;
+        transition-delay: .3s;
+        transition: .5s;
+    }
+}

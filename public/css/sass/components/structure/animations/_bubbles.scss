@@ -1,0 +1,21 @@
+@keyframes bubbleShow {
+    0% {
+        filter: brightness(5);
+        opacity: 0;
+        top: 5px;
+    }
+    50% {
+        top: -5px;
+    }
+    80% {
+        filter: brightness(2);
+    }
+    90% {
+        filter: brightness(2);
+    }
+    100% {
+        top: 0;
+        filter: brightness(1);
+        opacity: 1;
+    }
+}

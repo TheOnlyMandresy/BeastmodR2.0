@@ -1,0 +1,16 @@
+@use "sass:map";
+@use 'sizes' as *;
+
+@mixin displayDivided($template: 2, $forced: false) {
+    display: grid;
+    gap: $emL;
+    
+    @if ($forced) {
+        grid-template-columns: repeat($template, 1fr);
+    } @else {
+        grid-template-columns: auto;
+        @media only screen and (min-width: 600px) {
+            grid-template-columns: repeat($template, 1fr);
+        }
+    }
+}

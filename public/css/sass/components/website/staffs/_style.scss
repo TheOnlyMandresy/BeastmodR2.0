@@ -1,0 +1,104 @@
+@use '../../../libs/' as *;
+
+.website-staffs {
+    // left
+.left {
+
+.box-team {
+    background-color: lighten($navAdmin, 20%);
+    padding: $emXL;
+    overflow: hidden;
+
+    h2 {
+        display: flex;
+        align-items: center;
+        gap: $emL;
+        color: $navAdmin;
+        font-weight: $ftBold;
+    }
+
+    .team {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $emL;
+
+        .staff {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+                "img"
+                "username"
+                "infos";
+            gap: $emL;
+            background-color: $colorHead;
+            padding: $emXL;
+            border-radius: $emL;
+            overflow: hidden;
+            height: 200px;
+
+            & > .img { grid-area: img; }
+            & > .username { grid-area: username; }
+            & > .infos { grid-area: infos; }
+
+            .img { 
+                height: 64px;
+                border-radius: $emM;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url(/img/staffs/background.png);
+                text-align: center;
+                border: 1px solid $line;
+                box-shadow: $shadowOut inset;
+            }
+
+            .username {
+                line-height: initial;
+                text-align: center;
+            }
+
+            .infos {
+                @include center;
+                flex-direction: column;
+                background-color: $colorMid;
+                border-radius: $emM;
+                padding: $emL;
+
+                span { color: $black; }
+            }
+        }
+        
+        & > *:nth-child(4n+1) .img,
+        & > *:nth-child(2n+1) .img { background-position: -590px -280px; }
+        & > *:nth-child(4n) .img { background-position: -810px -700px; }
+        & > *:nth-child(5n-2) .img { background-position: -560px -560px; }
+
+    }
+}
+
+}
+
+    // right
+.right {
+
+.box-responsable {
+    .responsable {
+        display: grid;
+        gap: $emL;
+        padding: 0 $emXL $emXL $emXL;
+
+        .staff {
+            display: flex;
+            gap: $emL;
+            background-color: $colorHead;
+            border-radius: $emM;
+            padding: $emL;
+
+            img { height: 50px; width: 50px; }
+            .infos { display: grid; }
+        }
+    }
+}
+
+}
+
+}

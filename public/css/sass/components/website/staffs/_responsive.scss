@@ -1,0 +1,19 @@
+@media only screen and (min-width: 600px) {
+.website-staffs .left {
+    
+.box-team {
+    .team { grid-template-columns: repeat(3, 1fr); }
+}
+
+}
+}
+
+@media only screen and (min-width: 768px) {
+.website-staffs .left {
+    
+.box-team {
+    .team { grid-template-columns: repeat(4, 1fr); }
+}
+
+}
+}

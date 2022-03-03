@@ -1,0 +1,46 @@
+.users-index .top {
+
+.box {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: .5em;
+}
+
+}
+
+.users-index .left {
+
+.box-all {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5em;
+
+    .user {
+        background: #ededed;
+        padding: .8em;
+        border-radius: .3em;
+
+        p { text-align: center; }
+    }
+}
+
+}
+
+.users-index .right {
+
+.box-result {
+    .user {
+        display: grid;
+        grid-template-columns: 64px 1fr 100px;
+        gap: .3em;
+        padding: .5em;
+
+        .infos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+
+}

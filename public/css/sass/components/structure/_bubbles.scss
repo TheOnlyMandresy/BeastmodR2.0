@@ -1,0 +1,152 @@
+@use '../../libs' as *;
+@use 'animations/bubbles';
+
+.bubble,
+.bubble-me {
+    z-index: 1;
+    opacity: 0;
+    // overflow: hidden; // Car icones cachées
+    display: grid;
+    border-radius: .3em;
+    border: 1px rgba($black, .48) solid;
+
+    animation-name: bubbleShow;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 30px; width: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+            animation-delay: calc(250ms + (#{$i} * 100ms));
+        }
+    }
+
+    .head::after,
+    .message::after {
+        content: '';
+        position: absolute;
+        top: 0; bottom: 0;
+        margin: auto;
+        width: 0; height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
+
+    .head {
+        min-height: 30px;
+
+        background-position: -60px center, center;
+        background-repeat: no-repeat;
+
+        border-style: solid;
+        border-radius: 0.3em;
+        border-width: 2px 1px 3px 1px;
+    }
+
+    .message {
+        padding: .5em;
+        font-size: .9em;
+        border-style: solid;
+        word-break: break-word;
+
+        span { font-weight: $ftBold; color: $colorTitle; }
+    }
+}
+
+.bubble {
+    grid-template-columns: 30px auto;
+
+    &::after {
+        top: -10px;
+        left: 10px;
+    }
+}
+
+.bubble .head::after {
+    right: -.2em;
+    transform: rotate(90deg);
+}
+
+.bubble .message {
+    border-radius: 0 .3em .3em 0;
+    border-width: 2px 1px 3px 0;
+
+    &::after {
+        left: -.55em;
+        transform: rotate(90deg);
+    }
+}
+
+.bubble-me {
+    grid-template-columns: auto 30px;
+    &::after {
+        top: -10px;
+        right: 10px;
+    }
+}
+
+.bubble-me .head::after {
+    left: -.24em;
+    transform: rotate(270deg);
+}
+
+.bubble-me .message {
+    z-index: 1;
+    border-radius: .3em 0 0 .3em;
+    border-width: 2px 0 3px 1px;
+
+    &::after {
+        right: -.5em;
+        transform: rotate(270deg);
+    }
+}
+
+@each $code, $color in $bubbleColors {
+    [class*="bubble"].bbl-#{$code} {
+        box-shadow: 0 3px lighten(nth($color, 2), 10%) inset, 0 -3px darken(nth($color, 2), 10%) inset;
+        
+        @if (nth($color, 4) != null) {
+            $icon: nth($color, 4);
+
+            &::after {
+                background-image: url('/img/bubbles/#{$icon}' );
+            }
+        }
+
+        .head {
+            background-color: nth($color, 1);
+            border-color: lighten(nth($color, 1), 10%) darken(nth($color, 1), 10%) darken(nth($color, 1), 10%) lighten(nth($color, 1), 10%);
+            &::after {
+                border-top: 5px solid nth($color, 2);
+            }
+        }
+
+        .message {
+            background-color: nth($color, 2);
+            color: nth($color, 3);
+            border-color: lighten(nth($color, 2), 10%) darken(nth($color, 2), 10%) darken(nth($color, 2), 10%) lighten(nth($color, 2), 10%);
+            
+            &::after {
+                border-top: 5px solid nth($color, 2);
+            }
+        }
+    }
+
+    .bubble.bbl-#{$code} .head::after {
+        border-top: 5px solid darken(nth($color, 1), 10%);
+    }
+    
+    .bubble-me.bbl-#{$code} .head::after {
+        border-top: 5px solid lighten(nth($color, 1), 10%);
+    }
+}

@@ -1,0 +1,16 @@
+@use '../../libs' as *;
+
+header {
+    background-image: url(/img/header.gif);
+    background-position-y: 520px;
+    height: 117px; // 87px
+    padding: .5em;
+}
+
+footer {
+    // color: colorText($color: $footer, $dark: $black, $light: $white);
+    padding: 8px;
+    color: white;
+    width: 80vw;
+    margin: auto;
+}

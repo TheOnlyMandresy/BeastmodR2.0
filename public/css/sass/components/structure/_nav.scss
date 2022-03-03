@@ -1,0 +1,108 @@
+@use '../../libs' as *;
+
+$gradient: radial-gradient(circle, rgb(126, 229, 255) 25%, rgb(0, 204, 255) 52%, rgba(255,255,255,0) 100%);
+
+.navs {
+    z-index: 10;
+    position: fixed;
+    right: .4vw;
+    bottom: .4vh; // hover --> +5
+    display: flex;
+    gap: 1em;
+    background-color: $navPrincial;
+    border-radius: $emL;
+    padding: $emL;
+    align-content: center;
+    align-items: center;
+    opacity: .2;
+
+    &:hover {
+        opacity: 1;
+        transition: opacity .3s;
+    }
+}
+
+.navs .nav-principal {
+    
+    .section-principal {
+        z-index: 1;
+        background-color: $navMain;
+        border-radius: $emM;
+        padding: 0 $emL;
+        min-width: 50px; height: 35px; line-height: 35px;
+        cursor: default;
+        @include bgMiddle;
+    }
+
+    .panel-principal {
+        z-index: 0;
+        position: absolute;
+        height: 0; width: 0;
+        bottom: -.5em; right: calc(-50px - 1.5em);
+        border-radius: $emL;
+        background-color: $navPrincial;
+        border-bottom: 40px solid $navPrincial;
+        display: grid;
+        grid-template-columns: 150px 50px;
+        gap: $emXL;
+        overflow: hidden;
+    }
+
+    .panel-principal .options {
+        [class*="options-"] {
+            width: 0; height: 0;
+            overflow: hidden;
+        }
+
+        .open {
+            width: auto; height: auto;
+            transition: .3s;
+            display: grid;
+            gap: $emM;
+        }
+
+        li {
+            padding: $emM;
+            border-radius: $emM;
+            background-color: $navMain;
+
+            &.current { background-color: lighten($navMain, 70%); cursor: default; }
+            &:hover:not(.current) { background-color: darken($navMain, 10%); }
+        }
+    }
+
+    .panel-principal .sections {
+        display: grid;
+        gap: $emL;
+
+        li {
+            height: 35px;
+            background-color: $navMain;
+            border-radius: $emM;
+            filter: grayscale(90%);
+        }
+
+        [class*="section-"] {
+            background-position: center;
+            background-repeat: no-repeat;
+            &.open { background-color: $navSelected; filter: grayscale(0%); }
+            &:hover:not(.open) { background-color: darken($navMain, 10%); cursor: pointer; filter: grayscale(0%); }
+        }
+        .section-index { background-image: url('/img/navs/main/main.gif'); }
+        .section-posts { background-image: url('/img/navs/main/news.gif'); }
+        .section-others { background-image: url('/img/navs/main/games.gif'); }
+        .section-community { background-image: url('/img/navs/main/search.png'); }
+        .section-website { background-image: url('/img/navs/main/quests.png'); }
+        
+    }
+
+    &:hover .panel-principal {
+        padding: $emL $emL $emXL $emL;
+        width: auto; height: auto;
+        transition: width .4s ease-out, height .4s;
+    }
+}
+
+.navs .nav-principal.inAdmin {
+    .section-principal { background-color: #0059be; background-image: url(/img/navs/main/logo.png), $gradient; }
+}

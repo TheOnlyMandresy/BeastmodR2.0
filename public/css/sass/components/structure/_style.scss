@@ -1,0 +1,125 @@
+@use '../../libs' as *;
+
+.index {
+
+.landing.logged {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $emL;
+}
+
+.box-landing {
+    padding: $emXL;
+    background-color: $colorMain;
+    width: 400px; height: 240px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 150%;
+
+    img { 
+        width: 60%;
+        bottom: 10px; right: 40px;
+    }
+
+    .right {
+        position: absolute;
+        right: $emXL; top: $emXL;
+        width: 65%;
+
+        & > * {
+            &:not(:last-child) {
+                padding: $emXL;
+                border-radius: $emM;
+                margin-bottom: $emL;
+                background-color: $colorMain;
+            }
+            &:not(:first-child) { text-align: right; }
+        }
+
+        .divided-4-forced > * {
+            padding: $emXL;
+            border-radius: $emM;
+            margin-bottom: $emL;
+            text-align: center;
+            background-color: $colorMain;
+        }
+    }
+}
+
+.box-posts {
+    background-color: $colorMain;
+    padding: $emXL;
+    display: flex;
+    gap: $emL;
+
+    .posts {
+        width: 100%;
+        display: grid;
+        gap: $emL;
+
+        .post {
+            padding: $emXL;
+            text-align: center;
+            border-radius: $emM;
+            background-position: center;
+
+            p { text-shadow: 1px 1px 1px $black; }
+
+            .title {
+                color: $white;
+                font-size: $fontL;
+            }
+        }
+    }
+}
+
+.left {
+    h2 {
+        margin-bottom: initial;
+        border: initial;
+    }
+
+    .events {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $emL;
+        grid-template-areas:
+            "a"
+            "b"
+            "c"
+            "d";
+            & > .box-event:nth-child(1) { grid-area: a; }
+            & > .box-event:nth-child(2) { grid-area: b; }
+            & > .box-event:nth-child(3) { grid-area: c; }
+            & > .button { grid-area: d; }
+        
+        .box-event {
+            background-color: $colorMain;
+            background-position: center;
+            padding: $emXL;
+
+            .img {
+                @include bgMiddle;
+                height: 100px; width: 100%;
+            }
+
+            .title,
+            .countdown {
+                text-align: center;
+                margin-top: $emL;
+            }
+
+            .countdown { font-weight: $ftBolder; }
+            .title { font-size: $ftLarge; }
+
+            .buttons {
+                @include center;
+                gap: $emL;
+                margin-top: $emXL;
+            }
+        }
+    }
+}
+
+}

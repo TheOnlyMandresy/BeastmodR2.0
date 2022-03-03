@@ -1,0 +1,22 @@
+@media only screen and (min-width: 814px) {
+
+.users-index .left {
+    .box-all { grid-template-columns: repeat(3, 1fr); }
+}
+
+}
+
+
+@media only screen and (min-width: 1096px) {
+
+.users-index .left {
+    .box-all { grid-template-columns: repeat(4, 1fr); }
+}
+
+.users-param {
+    [class*="bubbles-"]:not(div).open + [class*="bubbles-"]:not(h2) {
+        padding-bottom: 1em;
+    }
+}
+    
+}

@@ -1,0 +1,278 @@
+@use '../../libs/' as *;
+
+// Index
+.community-forum-index {
+    .topics {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $emL;
+        width: 100%;
+        overflow-x: auto;
+
+        .box-topic {
+            padding: $emXL;
+            background-color: $colorMain;
+            display: flex;
+            gap: $emL;
+            justify-content: space-between;
+        }
+
+        .box-topic > .texts {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .title { font-weight: $ftBold; }
+            .author { font-size: $ftSmall; }
+        }
+    }
+
+    .categories {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: $emL;
+        
+        .box-section {
+            display: flex;
+            flex-direction: column;
+            padding: $emXL;
+            width: 170px; height: 100%;
+
+            .name { font-weight: $ftBold; }
+            .desc { font-size: $ftSmall; }
+        }
+
+        .box-section .texts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box-section .img {
+            @include glassBox;
+            @include bgMiddle;
+            height: 50px;
+        }
+    }
+}
+
+// Read
+.community-forum-read .top {
+    .box-header {
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $emXL;
+
+        a,
+        .img { height: 100%; }
+        .img {
+            box-shadow: initial;
+            width: 100px;
+            margin-right: $emXL;
+            border-radius: $emM;
+
+            box-shadow: 0 0 0 1px $line inset, 0 0 0 0.3em $white inset, 0 0 0 5px $line inset, $shadowOut inset;
+    
+            background-color: $body;
+            background-repeat: no-repeat;
+            background-position: center -10px;
+        }
+        
+        .infos {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            h1,
+            p {
+                color: $white;
+                text-shadow: 1px 1px 1px $opacity;
+            }
+
+            a,
+            p { width: fit-content; }
+
+            h1 { font-weight: $ftBold; }
+            p {
+                font-weight: $ftBolder;
+                font-size: $ftSmall;
+                padding: $emXL 0;
+            }
+        }
+    }
+}
+
+.community-forum-read .left {
+
+    .infos > * {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-content {
+        background-color: $white;
+        padding: $emXL;
+    }
+}
+
+.community-forum-read .right {
+
+.comments {
+ 
+    .comment {
+        [class*="bubble"] { margin-bottom: $emL; }
+        [class*="bubble"]:last-child { margin-bottom: initial; }
+
+        .answer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: $emL;
+            height: 0;
+            overflow: hidden;
+
+            p {
+                width: fit-content;
+                font-size: .8em;
+            }
+        }
+        &:hover .answer {
+            height: 100%;
+            margin-bottom: $emL;
+        }
+
+        [class*="dropdown-"] { overflow: hidden; }
+        .responses {
+            border-top: 1px solid $line;
+            border-radius: $emL;
+            background-color: $opacity;
+            padding: $emXL;
+            max-height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: $emM;
+            margin-bottom: $emL;
+
+            [class*="bubble"] { margin-bottom: initial; }
+        }
+    }
+
+    .box-send {
+        border-radius: $emL;
+        overflow: hidden;
+        & > * { border-radius: initial; }
+
+        .pagination {
+            background-color: $colorMid;
+            padding: $emL $emXL $emL $emXL;
+    
+            .buttons,
+            .pages {
+                gap: 0.3em;
+                display: flex;
+            }
+    
+            .pages { margin-top: $emM; }
+            .center { @include center; }
+            .prev img,
+            .last img { transform: rotate(180deg); }
+            .prev,
+            .last { text-align: right; }
+        }
+    
+        .pagination > * > * { width: 100%; }
+    
+        .send {
+            padding: $emXL;
+            background-color: deep-get($buttonColors, "success", 1);
+
+            .formSurround { margin: inherit; }
+            textarea { @include bgTransparent; }
+            .button-success { @include center; }
+        }
+    }
+
+    form {
+        .form {
+            display: grid;
+            gap: $emM;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+        }
+
+        .endAnswerTo {
+            gap: $emL;
+            display: flex;
+            align-items: center;
+            padding: $emM;
+            background-color: lighten(deep-get($buttonColors, "danger", 1), 5%);
+            border-radius: 2em;
+            font-size: $ftSmall;
+            margin-bottom: $emL;
+            width: fit-content;
+
+            p {
+                color: $white;
+                padding: 0 $emXL 0 0;
+                font-weight: $ftBold;
+            }
+        }
+    }
+}
+
+}
+
+// edit
+
+
+// New
+.community-forum-new {
+    .box-new {
+        padding: $emXL;
+        
+        background-color: deep-get($buttonColors, "success", 1);
+        &.edit { background-color: deep-get($buttonColors, "warning", 1); }
+
+        label { color: darken(deep-get($buttonColors, "success", 1), 15%); }
+        &.edit label { color: darken(deep-get($buttonColors, "warning", 1), 15%); }
+
+        input[name="title"],
+        input[name="image"],
+        select { @include bgTransparent; }
+        .buttons { text-align: right; }
+
+        
+    }
+}
+
+// Owned
+[class*="community-forum"] {
+
+.owned {
+    display: flex;
+    flex-direction: column;
+    gap: $emL;
+    max-height: 500px;
+    overflow-y: auto;
+
+    .box-owned {
+        display: flex;
+        gap: $emL;
+        flex-direction: column;
+        background-color: $colorLight;
+
+        .title { font-weight: $ftBold; }
+        .date { font-size: $ftSmall; }
+
+        .buttons {
+            display: flex;
+            gap: $emL;
+            justify-content: flex-end;
+        }
+    }
+}
+
+}

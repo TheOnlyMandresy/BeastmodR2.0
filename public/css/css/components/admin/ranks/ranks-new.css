@@ -1,0 +1,50 @@
+form .formSurround {
+  display: flex;
+  flex-direction: column;
+}
+form .formSurround:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+form textarea {
+  padding: 0.5em;
+  resize: vertical;
+  border-radius: 0.3em;
+  min-height: 50px;
+}
+form input {
+  z-index: 1;
+}
+form input,
+form select {
+  padding: 0.5em;
+  border-radius: 0.3em;
+}
+form label {
+  padding-bottom: 0.5em;
+  font-weight: 500;
+}
+
+table {
+  width: 100%;
+}
+
+h1 {
+  line-height: 1.35em;
+}
+
+p {
+  line-height: 1.17em;
+}
+
+.admin-ranks-new .left .rights {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.3em;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.admin-ranks-new .left .right {
+  padding: 0.3em;
+}
+
+/*# sourceMappingURL=ranks-new.css.map */

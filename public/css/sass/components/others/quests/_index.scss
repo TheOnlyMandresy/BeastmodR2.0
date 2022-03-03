@@ -1,0 +1,28 @@
+@forward 'animations/';
+@forward 'responsive/';
+
+[class*="admin-events"] .left {
+
+.box-winners {
+    background-color: #ebebeb;
+    display: flex;
+    align-items: center;
+    gap: .3em;
+
+    .winner {
+        padding: .5em;
+        border-radius: .3em;
+        background-color: #bdbdbd;
+        display: flex;
+        gap: .3em;
+        align-items: center;
+
+        & > p:last-child { font-size: .8em; }
+    }
+}
+
+}
+
+[class*="admin-events"] .right {
+
+}

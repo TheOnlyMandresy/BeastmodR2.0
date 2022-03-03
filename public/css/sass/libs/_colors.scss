@@ -1,0 +1,102 @@
+// Colors
+$black: #333333;
+$white: #FFFFFF;
+$opacity: #00000012;
+$midColor: gray;
+$colorLight: #e2e2e2;
+
+$blueRoyal: #0095f6; //#00376b
+$colorCoin: #ff9100;
+$colorVIP: #242424;
+
+// Font
+$fontBlack: rgb(51, 51, 51);
+$h1: #000000;
+$h2: #bdbdbd; // white
+$h1Admin: #3a3a3a;
+$h2Admin: #bdbdbd;
+
+// Structure
+$header: #FFF;
+$body:  #fbf9f5; //#bddfef;
+$bodyDark: darken($body, 15%);
+$line: rgba($bodyDark, 54%); // #9cd0e7
+$colorTitle: #000000;
+$shadowOut: 4px 10px 20px rgba($bodyDark, 36%); // rgb(46 157 203 / 36%)
+
+$colorHead: white;
+$colorMid: #ededed;
+$colorBack: initial;
+
+$footer: darken($body, 40);
+
+// New Structure
+$colorMain: #ffffff;
+
+// Nav
+$navBack: #000000;
+$navMain: #333333;
+$navLogout: #d33a11;
+$navAdmin: #ff9100;
+$navPrincial: #000000;
+$navSelected: rgb(157, 255, 92);
+
+// Rewards
+$gold: gold;
+$silver: silver;
+$bronze: #614e1a;
+
+// users
+$colorUsers: (
+    // Parameters
+    parameters: (
+        editor: #e2e2e2
+    )
+);
+
+// Bubbles (head, mess, text, icon)
+$bubbleColors: (
+    // Default
+    dft: (#cccccc, #dbdbdb, $black, null),
+    ble: (#49cdf5, #9ee7fe, $black, null),
+    ppl: (#6449a7, #c19afe, $black, null),
+    pnk: (#c63595, #ffbfe2, $black, null),
+    blD: (#296686, #5eccff, $black, null),
+    ylw: (#ffb514, #fdd68f, $black, null),
+    org: (#d17800, #e3ab0f, $black, null),
+    grn: (#589749, #76cf7b, $black, null),
+    // VIP
+    pnkVIP: (#ff567b, #ffbabd, $black, null),
+    blVIP: (#3f748b, #069eaf, $white, null),
+    grnVIP: (#88ca72, #b2db7b, $black, null),
+    pplVIP: (#62305b, #aa1297, $white, null),
+    sleepVIP: (#656565, #a2a2a2, $white, '541651.png'),
+    lgreenVIP: (#84a27a, #8ad49d, $black, null),
+    ylwVIP: (#8c805a, #ffe699, $black, null),
+    cloudVIP: (#4fb8f1, #dbdbdb, $black, '14__-357.png'),
+    redVIP: (#ac0a21, #ff7d82, $black, null),
+    diamndVIP: (#4aa78f, #82d6db, #659f00, '2063__-mN.png'),
+    moneyVIP: (#e9b124, #e9b124, #f8ef2b, '1183.png'),
+    // Staff
+    helper: (#138ab1, #ffc854, #138ab1, 'helper.png'),
+    staff: (#d95700, #ffc854, #d95700, 'builder.png'),
+    manager: (#ac2828, #ffc854, #ac2828, 'staff.png')
+);
+
+// Buttons
+$buttonColors: (
+    base : #cacaca,
+    infos : #6464f0,
+    success : #8bc06a,
+    warning : #f5a03e,
+    danger : #ff2d3b
+);
+
+// Flash alerts
+$flashColors: (
+    base : (#e7e7e7),
+    infos : (#639dcf),
+    success : (#8eda55),
+    warning : (#ffc617),
+    danger : (#ef3636)
+);

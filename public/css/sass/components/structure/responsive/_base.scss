@@ -1,0 +1,28 @@
+@use '../../../libs' as *;
+
+@media only screen and (min-width: 600px) {
+    [class*="template"] {
+        width: calc(100% - 1em);
+        gap: $emXL;
+    }
+
+    .templateTwo {
+        grid-template-areas: 
+        "left right";
+    }
+
+    .templateThree {
+        grid-template-areas: 
+        "top top"
+        "left right";
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    [class*="template"] {
+        margin: 100px auto auto auto;
+        width: 80%;
+    }
+
+    .navs { opacity: 1; }
+}

@@ -1,0 +1,29 @@
+[class*="dropdown-open-"] {
+    cursor: pointer;
+
+    &.open + [class*="dropdown-"]:not([class*="dropdown-open-"]) {
+        height: auto;
+    }
+}
+
+[class*="dropdown-"]:not([class*="dropdown-open-"]) {
+    height: 0;
+    overflow: hidden;
+    transition: height .3s ease-in-out;
+}
+
+.dropdown-arrow {
+    &::after {
+        content: "V";
+        position: absolute;
+        right: 1em;
+        font-weight: 500;
+        transform: rotate(180deg);
+        
+        transition: transform .3s;
+    }
+
+    &.open::after {
+        transform: rotate(0deg);
+    }
+}

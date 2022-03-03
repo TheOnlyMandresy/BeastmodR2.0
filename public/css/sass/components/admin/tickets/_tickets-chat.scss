@@ -1,0 +1,24 @@
+.admin-tickets-chat .left {
+
+.box-ticket {
+    .chat .message {
+        margin-bottom: 0.3em;
+        background-color: gray;
+        padding: 0.3em;
+        border-radius: 0.3em;
+
+        &.principal { background-color: #c9c9c9; }
+        &.user { background-color: inherit; }
+
+        .date,
+        .username {
+            display: block;
+            font-size: .8em;
+        }
+
+        .date { text-align: right; }
+        .username { font-weight: bold; }
+    }
+}
+
+}

@@ -1,0 +1,41 @@
+@media only screen and (min-width: 600px) {
+    .posts-read .right {
+        .right > .comments .pagination {
+            grid-template-columns: 45px repeat(2, 33px) auto repeat(2, 33px)!important;
+            grid-template-areas: 'r f n b p l'!important;
+
+            .pages {
+                height: 100%;
+                overflow: hidden;
+                display: flex!important;
+                flex-wrap: wrap;
+                flex-direction: column;
+                gap: .15em;
+            }
+        }
+    } 
+}
+
+@media only screen and (min-width: 768px) {
+    .posts-read .top{
+        .box.top {
+            padding: 1em;
+            
+            .title {
+                width: 70%;
+            }
+        }
+    }
+
+    .posts-read .left {
+        .box-category {
+            grid-template-columns: repeat(3, 1fr) 46px;
+            // grid-template-rows: minmax(0, 60px);
+            grid-template-areas: 'a b c d';
+        }
+
+        .infos .author .text {
+            // padding: 1em;
+        }
+    }
+}
