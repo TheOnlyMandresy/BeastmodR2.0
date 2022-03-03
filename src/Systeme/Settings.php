@@ -15,4 +15,8 @@ class Settings
 
     protected const CMS_VERSION = 'R2.0 (Alpha)';
     protected const CMS_AUTHOR = 'Kamobbah';
+
+    // URLS
+
+    // URLS - IMAGES
 }
