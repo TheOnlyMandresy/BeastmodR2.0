@@ -20,7 +20,6 @@ class Settings
 
     // URLS
     protected const URL_USER_PROFIL = '/users/p/';
-    protected const URL_USER_PROFIL = '/users/p/';
 
     // URLS - IMAGES
 }
