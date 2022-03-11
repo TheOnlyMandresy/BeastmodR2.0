@@ -23,20 +23,22 @@ class Nav
 
         $this->titles['website'] = Systeme::getSystemInfos('website');
 
+        if (str_contains($page, '-')) {
+            $section = explode('-', $page)[0];
+            $currentPage = explode('-', $page)[1];
+        }
+        
+        $nav = [
+            'section' => $section,
+            'currentPage' => $currentPage,
+            'inAdmin' => false
+        ];
+
         if (str_contains($page, 'admin')) {
             $nav = [
                 'section' => "index",
                 'currentPage' => null,
                 'inAdmin' => true
-            ];
-        } elseif (str_contains($page, '-')) {
-            $section = explode('-', $page)[0];
-            $currentPage = explode('-', $page)[1];
-            
-            $nav = [
-                'section' => $section,
-                'currentPage' => $currentPage,
-                'inAdmin' => false
             ];
         }
 
