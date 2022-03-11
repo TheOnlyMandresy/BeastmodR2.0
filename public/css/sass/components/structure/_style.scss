@@ -47,29 +47,48 @@
     }
 }
 
-.box-posts {
+.box-posts .slideshow {
     background-color: $colorMain;
-    padding: $emXL;
-    display: flex;
-    gap: $emL;
+    border-radius: $emL;
+    overflow: hidden;
+    height: 20vh;
 
-    .posts {
-        width: 100%;
+    .inMovement {
         display: grid;
-        gap: $emL;
+        height: 100%;
+        grid-template-columns: repeat(3, 100%);
+        transition: all .4s;
+    }
 
-        .post {
-            padding: $emXL;
-            text-align: center;
-            border-radius: $emM;
-            background-position: center;
+    .post {
+        padding: $emXL;
+        text-align: center;
+        border-radius: $emM;
+        background-position: center;
+        height: 100%;
 
-            p { text-shadow: 1px 1px 1px $black; }
+        .texts {
+            position: absolute;
+            bottom: 3em;
+            left: 0;
+            opacity: 0;
+        }
 
-            .title {
-                color: $white;
-                font-size: $fontL;
-            }
+        p {
+            text-shadow: 1px 1px 1px $black;
+            text-align: left;
+            color: $white;
+        }
+
+        .title {
+            font-size: 3em;
+        }
+
+        &.show .texts {
+            opacity: 1;
+            left: $emXL;
+            transition: opacity .5s .5s, left .5s .5s;
+
         }
     }
 }
