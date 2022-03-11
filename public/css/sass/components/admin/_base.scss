@@ -21,21 +21,21 @@
         text-align: center;
     }
 
-    td { padding: $emM; }
-
     [class*="box-"] {
         background-color: $colorHead;
         padding: $emL;
     }
 
-    .celled {
-        display: grid;
-        gap: $emM;
-    }
+    .celled { display: grid; }
 
     [class*="cell-"] {
         display: grid;
         gap: $emM;
+        padding: $emL;
+        border-radius: $emM;
+        align-items: center;
+
+        &:nth-child(odd) { background-color: $body; }
     }
     .cell-2 { grid-template-columns: 1fr repeat(2, auto); }
     .cell-3 { grid-template-columns: 1fr repeat(3, auto); }

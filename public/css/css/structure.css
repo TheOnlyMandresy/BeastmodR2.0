@@ -3558,20 +3558,22 @@ footer {
   padding: 0.5em;
   text-align: center;
 }
-[class*=admin-] td {
-  padding: 0.3em;
-}
 [class*=admin-] [class*=box-] {
   background-color: white;
   padding: 0.5em;
 }
 [class*=admin-] .celled {
   display: grid;
-  gap: 0.3em;
 }
 [class*=admin-] [class*=cell-] {
   display: grid;
   gap: 0.3em;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  align-items: center;
+}
+[class*=admin-] [class*=cell-]:nth-child(odd) {
+  background-color: #fbf9f5;
 }
 [class*=admin-] .cell-2 {
   grid-template-columns: 1fr repeat(2, auto);
@@ -3703,7 +3705,7 @@ footer {
   display: grid;
   padding: 0.5em;
   border-radius: 0.3em;
-  background-color: #ebebeb;
+  background-color: #fbf9f5;
 }
 [class*=admin-posts-] .box-requests .requests .request .title,
 [class*=admin-posts-] .box-requests .requests .request .author {

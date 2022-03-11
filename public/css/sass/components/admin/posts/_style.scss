@@ -11,7 +11,7 @@
             display: grid;
             padding: $emL;
             border-radius: $emM;
-            background-color: #ebebeb;
+            background-color: $body;
 
             .title,
             .author { font-size: $ftSmall; }
