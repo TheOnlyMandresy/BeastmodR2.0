@@ -6,23 +6,10 @@ define('PAGE', 'index');
 <?php ob_start(); ?>
 
 <div class="box-posts">
-    <div class="posts">
-    <?php foreach($posts as $post): ?>
-        <a href="<?= $post->link; ?>" class="hover">
-            <div class="post" style="background-image: url(<?= $post->background; ?>);">
-                <p class="title"><?= $post->title; ?></p>
-                <p class="tease"><?= $post->teaser; ?></p>
-            </div>
-        </a>
-    <?php endforeach; ?>
-    </div>
-    
-    <div class="buttons-container">
-        <a href="/posts" class="button-base">plus</a>
-    </div>
+    <?php require_once Systeme::root(1). 'HTML/Index/SlideShow.php'; ?>
 </div>
 
-<div class="divided-2-forced">
+<div class="divided-2">
     <div class="left">
         <h2><?= $eventsTitle; ?></h2>
 
