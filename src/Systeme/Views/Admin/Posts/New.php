@@ -21,7 +21,7 @@ $form = new form();
             'ph' => 'Image de présentation'
         ]); ?>
         <?= $form->select(['name' => 'idSection'], $opt, ['Catégorie de l\'article']); ?>
-        <?= $form->textarea(['name' => 'content', 'ph' => 'Contenu de l\'article'], true); ?>
+        <?= $form->textarea(['name' => 'content', 'class' => 'sceditor', 'ph' => 'Contenu de l\'article'], true); ?>
         
         <div class="buttons">
             <button class="button-success">Créer</button>
@@ -44,7 +44,7 @@ $form = new form();
             'required' => false
         ]); ?>
         <?= $form->select(['name' => 'idSection', 'selected' => $post->idSection], $opt, ['Catégorie de l\'article']); ?>
-        <?= $form->textarea(['name' => 'content', 'ph' => 'Contenu de l\'article', 'value' => $post->content], true); ?>
+        <?= $form->textarea(['name' => 'content', 'class' => 'sceditor', 'ph' => 'Contenu de l\'article', 'value' => $post->content], true); ?>
         <div class="buttons">
             <button class="button-success">Sauvegarder</button>
         <?php if ($post->state == 0): ?>
@@ -60,5 +60,6 @@ $form = new form();
 
 <?php ob_start(); ?>
 
+<?php require_once Systeme::root(1). 'HTML/Admin/Posts/Requests.php'; ?>
 
 <?php $contentRight = ob_get_clean(); ?>

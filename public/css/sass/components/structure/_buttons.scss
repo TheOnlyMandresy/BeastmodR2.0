@@ -7,6 +7,8 @@
     overflow: hidden;
     cursor: pointer;
     color: $white;
+    width: fit-content; // OPTIONAL (See if no visual errors)
+
     * { color: $white; }
 
     &.active,

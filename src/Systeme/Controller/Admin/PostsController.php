@@ -50,7 +50,7 @@ class PostsController extends SystemeController
         $myId = User::getMyData('id');
         $requests = TableAdmin::getRequests();
 
-        ($requests)? $this->compact(['requests']) : null;
+        if ($requests) $this->compact(['requests']);
 
         return $this->render('/Admin/Posts/Index', compact($this->compact(['posts', 'myId'])));
     }
@@ -112,6 +112,10 @@ class PostsController extends SystemeController
             $options[] = [$option->id => $option->name];
         }
         $opt = ['Catégorie de l\'article' => $options];
+
+        $requests = TableAdmin::getRequests();
+
+        if ($requests) $this->compact(['requests']);
 
         return $this->render('/Admin/Posts/New', compact($this->compact(['opt'])));
     }
@@ -279,6 +283,9 @@ class PostsController extends SystemeController
         $opt = ['Catégorie de l\'article' => $options];
 
         $h1 = 'Modification : ' .$post->title;
+        $requests = TableAdmin::getRequests();
+
+        if ($requests) $this->compact(['requests']);
         
         return $this->render('/Admin/Posts/New', compact($this->compact(['edit', 'post', 'opt'])));
     }

@@ -1,4 +1,4 @@
-let textarea = document.querySelector('form textarea');
+let textarea = document.querySelector('.sceditor');
 sceditor.create(textarea, {
     format: 'bbcode',
     style: 'development/themes/content/kamobbah.css'

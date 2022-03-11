@@ -1207,6 +1207,7 @@ h2 {
   overflow: hidden;
   cursor: pointer;
   color: #FFFFFF;
+  width: fit-content;
 }
 [class*=button-] * {
   color: #FFFFFF;
@@ -3564,6 +3565,20 @@ footer {
   background-color: white;
   padding: 0.5em;
 }
+[class*=admin-] .celled {
+  display: grid;
+  gap: 0.3em;
+}
+[class*=admin-] [class*=cell-] {
+  display: grid;
+  gap: 0.3em;
+}
+[class*=admin-] .cell-2 {
+  grid-template-columns: 1fr repeat(2, auto);
+}
+[class*=admin-] .cell-3 {
+  grid-template-columns: 1fr repeat(3, auto);
+}
 
 .navs .nav-admin .section-admin {
   z-index: 1;
@@ -3678,29 +3693,23 @@ footer {
   border-color: #cc7400;
 }
 
-.admin-posts-index .box-requests {
+[class*=admin-posts-] .box-requests .requests {
   max-height: 400px;
   overflow-y: auto;
-}
-.admin-posts-index .box-requests .requests {
   display: grid;
-  grid-template-columns: auto auto;
   gap: 0.3em;
-  background-color: #dbdbdb;
-  padding: 0.3em;
-  border-radius: 0.5em;
 }
-.admin-posts-index .box-requests .request {
-  display: flex;
-  flex-direction: column;
+[class*=admin-posts-] .box-requests .requests .request {
+  display: grid;
   padding: 0.5em;
   border-radius: 0.3em;
   background-color: #ebebeb;
 }
-.admin-posts-index .box-requests .request .title {
+[class*=admin-posts-] .box-requests .requests .request .title,
+[class*=admin-posts-] .box-requests .requests .request .author {
   font-size: 0.8em;
 }
-.admin-posts-index .box-requests .request span:last-child {
+[class*=admin-posts-] .box-requests .requests .request span:last-child {
   text-align: right;
 }
 

@@ -61,9 +61,11 @@ class Form
         $name = $datas['name'];
         $placeholder = (isset($datas['ph']))? $datas['ph'] : null;
         $value = (isset($datas['value']))? $datas['value'] : null;
+        $class = (isset($datas['class']))? 'class="' .$datas['class']. '" ' : null;
 
         $html = '<textarea ' .$required. ' id="' .$id. '"';
         $html .= 'name="' .$name. '" ';
+        $html .= $class;
         $html .= ($addLabel === false)? 'placeholder="'. $placeholder .'" >' : '>';
         $html .= $value;
         $html .= '</textarea>';
