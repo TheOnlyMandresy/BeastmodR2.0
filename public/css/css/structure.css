@@ -52,25 +52,6 @@ p {
   image-rendering: pixelated;
   font-weight: normal;
 }
-* ::-webkit-scrollbar {
-  width: 17px;
-  box-sizing: border-box;
-}
-* ::-webkit-scrollbar-thumb {
-  border-radius: 0.3em;
-  border: 1px solid #535353;
-  box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  background: #fff;
-}
-* ::-webkit-scrollbar-thumb:active {
-  background: #CCCCCC;
-}
-* ::-webkit-scrollbar-track-piece {
-  border-radius: 0.3em;
-  background-color: #d9d9d9;
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
 
 html,
 body,
@@ -1207,7 +1188,6 @@ h2 {
   overflow: hidden;
   cursor: pointer;
   color: #FFFFFF;
-  width: fit-content;
 }
 [class*=button-] * {
   color: #FFFFFF;
@@ -1570,6 +1550,26 @@ footer {
   }
 }
 @media only screen and (min-width: 768px) {
+  * ::-webkit-scrollbar {
+    width: 17px;
+    box-sizing: border-box;
+  }
+  * ::-webkit-scrollbar-thumb {
+    border-radius: 0.3em;
+    border: 1px solid #535353;
+    box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    background: #fff;
+  }
+  * ::-webkit-scrollbar-thumb:active {
+    background: #CCCCCC;
+  }
+  * ::-webkit-scrollbar-track-piece {
+    border-radius: 0.3em;
+    background-color: #d9d9d9;
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
   [class*=template] {
     margin: 100px auto auto auto;
     width: 80%;
