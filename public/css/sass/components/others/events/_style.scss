@@ -6,6 +6,8 @@
 .box-title {
     @include center;
     background-position: center;
+    background-size: cover;
+    background-size: auto;
     height: 100%;
     margin: initial;
     

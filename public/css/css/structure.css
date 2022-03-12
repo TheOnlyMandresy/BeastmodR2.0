@@ -336,7 +336,7 @@ h2 {
   text-align: center;
   border-radius: 0.3em;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
   height: 100%;
 }
 .index .slideshow .post .texts {
@@ -1603,6 +1603,11 @@ footer {
     right: 33px;
   }
 }
+@media only screen and (min-width: 600px) {
+  .index .slideshow .post {
+    background-size: cover;
+  }
+}
 @media only screen and (min-width: 768px) {
   .index .left .events {
     grid-template-columns: repeat(2, 1fr);
@@ -2107,6 +2112,8 @@ footer {
   justify-content: center;
   align-items: center;
   background-position: center;
+  background-size: cover;
+  background-size: auto;
   height: 100%;
   margin: initial;
 }
@@ -2395,7 +2402,10 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-  others-.events .right .bests {
+  .others-events .top .box-title {
+    background-size: cover;
+  }
+  .others-events .right .bests {
     grid-template-columns: 1fr;
     grid-template-areas: "first" "second" "third";
   }
@@ -2650,6 +2660,7 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 1em;
+  background-size: auto;
 }
 .community-forum-read .top .box-header a,
 .community-forum-read .top .box-header .img {
@@ -2859,6 +2870,11 @@ footer {
   justify-content: flex-end;
 }
 
+@media only screen and (min-width: 600px) {
+  .community-forum-read .top .box-header {
+    background-size: cover;
+  }
+}
 @media only screen and (min-width: 768px) {
   .community-forum-index .topics {
     grid-template-columns: repeat(2, 1fr);
