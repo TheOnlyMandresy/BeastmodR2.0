@@ -116,7 +116,7 @@ body {
   display: grid;
 }
 [class*=template]:not(.templateOne) {
-  grid-template-columns: calc(65% - .5em) calc(35% - .5em);
+  grid-template-columns: 1fr 1fr;
 }
 [class*=template] > * {
   padding: 0 0.3em;
@@ -1539,6 +1539,9 @@ footer {
   [class*=template] {
     width: calc(100% - 1em);
     gap: 1em;
+  }
+  [class*=template]:not(.templateOne) {
+    grid-template-columns: calc(65% - .5em) calc(35% - .5em);
   }
 
   .templateTwo {

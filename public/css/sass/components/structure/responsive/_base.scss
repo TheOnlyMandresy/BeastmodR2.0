@@ -4,6 +4,7 @@
     [class*="template"] {
         width: calc(100% - 1em);
         gap: $emXL;
+        &:not(.templateOne) { grid-template-columns: calc(65% - .5em) calc(35% - .5em); }
     }
 
     .templateTwo {
