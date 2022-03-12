@@ -116,7 +116,7 @@ body {
   display: grid;
 }
 [class*=template]:not(.templateOne) {
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: calc(65% - .5em) calc(35% - .5em);
 }
 [class*=template] > * {
   padding: 0 0.3em;
