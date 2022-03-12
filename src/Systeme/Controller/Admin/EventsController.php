@@ -79,7 +79,7 @@ class EventsController extends SystemeController
                 ],
                 'event' => [
                     'appartUrl' => Systeme::security(['text' => $_POST['appartUrl']], 'post'),
-                    'background' => Systeme::security(['text' => $_POST['background']], 'post'),
+                    'image' => Systeme::security(['text' => $_POST['image']], 'post'),
                     'startAt' => Systeme::dateFormat('sql', Systeme::security(['text' => $_POST['startAt']], 'post')),
                     'endAt' => Systeme::dateFormat('sql', Systeme::security(['text' => $_POST['endAt']], 'post'))
                 ],
@@ -148,7 +148,7 @@ class EventsController extends SystemeController
                     'post' => $datasPost,
                     'event' => [
                         'appartUrl' => Systeme::security(['text' => $_POST['appartUrl']], 'post'),
-                        'background' => Systeme::security(['text' => $_POST['background']], 'post'),
+                        'image' => Systeme::security(['text' => $_POST['image']], 'post'),
                         'startAt' => Systeme::dateFormat('sql', Systeme::security(['text' => $_POST['startAt']], 'post')),
                         'endAt' => Systeme::dateFormat('sql', Systeme::security(['text' => $_POST['endAt']], 'post'))
                     ],

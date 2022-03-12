@@ -1,6 +1,6 @@
 <?php
 define('TEMPLATE', 'Two');
-define('PAGE', 'admin-events-new');
+define('PAGE', 'admin-others-events-new');
 
 use Systeme\HTML\Form;
 

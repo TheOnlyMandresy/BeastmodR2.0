@@ -1,6 +1,6 @@
 <?php
 define('TEMPLATE', 'Two');
-define('PAGE', 'admin-other-index');
+define('PAGE', 'admin-others-events');
 ?>
 
 <?php ob_start(); ?>
