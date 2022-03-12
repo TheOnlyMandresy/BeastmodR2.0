@@ -5,7 +5,9 @@ function Avatargenerator() {
          \     // __ \ /    \ /  _ \ /    \|   | _(__  <  _(__  <   /    /
          /     \  ___/|   |  (  <_> )   |  \   |/       \/       \ /    / 
         /___/\  \___  >___|  /\____/|___|  /___/______  /______  //____/  
-              \_/   \/     \/            \/           \/       \/         
+              \_/   \/     \/            \/           \/       \/  
+              
+              Edit of Kamobbah
     */
 
     let getCode = document.querySelector('.avatarimage input[type=hidden]').value;
@@ -289,7 +291,7 @@ function Avatargenerator() {
         return that.palette[ni];
     }
     
-    this.codes = [ // Look par défaut Mec
+    this.codes = [ // Look par défaut
         ["hr", avatarGeneratorStrip(avatarGeneratorFind("hr-", secLook), 1)], // Cheveux
         ["hd", avatarGeneratorStrip(avatarGeneratorFind("hd-", secLook), 1)],  // Faces
         ["ch", avatarGeneratorStrip(avatarGeneratorFind("ch-", secLook), 1)], // Hauts

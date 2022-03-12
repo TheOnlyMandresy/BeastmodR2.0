@@ -35,7 +35,11 @@
 			<div id="palette"></div>
 		</div>
 		<div class="right">
-			<div id="avatar"></div>
+			<div class="avatar">
+				<div id="avatar"></div>
+				<div class="projector one"></div>
+				<div class="projector two"></div>
+			</div>
 			<div class="divided-2-forced">
 				<div class="hover rotate left" onclick="rotateAvatar('left')"></div>
 				<div class="hover rotate right" onclick="rotateAvatar('right')"></div>

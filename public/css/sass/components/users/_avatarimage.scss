@@ -2,9 +2,34 @@
 @import url(https://fonts.googleapis.com/css?family=Lobster|Roboto);
 
 .users-param .avatarimage {
+    .sections {
+        height: 50px;
+        margin-bottom: 40px;
+        text-align: center;
+
+        & > .sub {
+            z-index: 1;
+            opacity: 0;
+            position: absolute;
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            bottom: -2em;
+
+            &.selected { opacity: 1; z-index: 9; }
+        }
+    }
+
     .categories {
         [class*="choice-"] {
+            height: 47px; width: 57px;
+            border-radius: $emM;
+            @include bgMiddle;
 
+            &.selected {
+                background-color: deep-get($colorUsersParams, "lookEditor", 3);
+                box-shadow: inset 1px 1px 1px rgb(0 0 0 / 20%);
+            }
         }
 
         .choice-1 { background-image: url('/img/avatarimage/Genre.png'); }
@@ -13,16 +38,32 @@
         .choice-4 { background-image: url('/img/avatarimage/Bas.png'); }
     }
 
+    .sub > .nav {
+        font-size: $ftRegular;
+        cursor: pointer;
+
+        &.selected {
+            font-weight: $ftBolder;
+            cursor: default;
+        }
+    }
+
     .editor {
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: $emL;
     }
 
-    .right {
-        #avatar {
+    .editor > .right {
+        display: grid;
+        align-content: space-between;
+        overflow: hidden;
+
+        .avatar {
             @include bgMiddle;
             width: 100%; height: 220px;
+            background: linear-gradient(0deg, rgb(0 0 0 / 14%) 0%, rgba(255,219,142,1) 100%);
+            border-radius: $emM;
         }
 
         .rotate {
@@ -37,6 +78,73 @@
             background-position: center left;
             background-image: url('/img/avatarimage/rotate_right.png');
         }
+        .divided-2-forced { padding: 2em 0; }
+    }
+
+    #clothes {
+        height: 200px;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-items: center;
+
+        .clothes-object {
+            height: 45px;
+            cursor: pointer;
+            width: 45px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 50px;
+            background-position-x: center;
+            border-radius: 35px;
+            background-repeat: no-repeat;
+            border: 3px solid #DBDAD5;
+            background-color: #C9C8C3;
+            transition: border .5s ease, background-color .5s ease;
+
+            &.selected {
+                border-radius: 35px;
+                border: 3px solid rgb(152 152 152 / 60%);
+                background-color: deep-get($colorUsersParams, "lookEditor", 2);   
+                cursor: default;
+            }
+        }
+    }
+
+    #palette {
+        margin-top: $emXL;
+        height: 100px;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        justify-items: center;
+    }
+
+    .avatar  #avatar {
+        @include bgMiddle;
+        height: 100%; width: 100%;
+    }
+
+    .avatar .projector {
+        background-image: url('/img/avatarimage/pngwing.png');
+        height: 100%; width: 100%;
+        background-repeat: no-repeat;
+        background-size: 250%;
+        position: absolute;
+        background-position: -80px -80px;
+        top: 20px;
+        border-radius: $emM;
+
+        &.one {
+            left: -1em;
+            transform: rotate(16deg);
+        }
+
+        &.two {
+            right: -1em;
+            transform: rotate(346deg) rotateY(180deg);
+        }
     }
 
 
@@ -47,53 +155,6 @@
         z-index: 8;
     }
 
-    /* Choix primaire */
-    .background-image {
-        background-repeat: no-repeat;
-        background-position: center;
-        display: inline-block;
-    }
-    .mainNav {
-        height: 35px;
-        width: 47px;
-    }
-    #avatarimage_content .content_choix .first_child .mainNav {
-        padding: 10px;
-        color: #666;
-        margin-bottom: 15px;
-        font-weight: bold;
-        font-size: 14px;
-        text-shadow: 0 1px 0 #fff;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-        box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #999;
-        background-color: #efefef;
-        cursor: pointer;
-        box-sizing: border-box;
-    }
-    #avatarimage_content .content_choix .first_child .selected {
-        box-shadow: 1px 1px 0 #fff, inset 1px 1px 0 #999;
-    }
-    /* FIN */
-
-
-    /* Choix secondaire */
-    .nav {
-        padding: 5px;
-    }
-    .nav.selected {
-        background-color: #E2E2E2;
-        border: 1px solid rgba(0,0,0,0.6);
-        border-top: none;
-        border-radius: 0px 0px 5px 5px;
-        box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.3);
-        font-weight: bolder; 
-        position: relative;
-        z-index: 9;
-        top: -1px;
-    }
-    /* FIN */
-
 
     /* Choix couleur */
     #avatarimage_content {
@@ -103,11 +164,6 @@
         border-radius: 8px;
         overflow: hidden;
         background-color: #ECECEC;
-    }
-    #palette {
-        margin-top: 30px;
-        overflow-y: auto;
-        height: 100px;
     }
     .palette-child {
         display: inline-block;
@@ -127,31 +183,6 @@
 
 
     /* Choix vêtement */
-    #clothes {
-        height: 200px;
-        overflow-y: scroll;
-    }  
-    .clothes-object {
-        height: 45px;
-        cursor: pointer;
-        width: 45px;
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        text-align: center;
-        line-height: 50px;
-        background-position-x: center;
-        border-radius: 35px;
-        background-repeat: no-repeat;
-        border: 3px solid #DBDAD5;
-        background-color: #C9C8C3;   
-    }
-    .clothes-object.selected {
-        border-radius: 35px;
-        border: 3px solid rgba(52, 152, 219,0.6);
-        background-color: #B1B1B1;   
-        cursor: auto;
-    }
     .clothes-object.hr, .clothes-object.hd, .clothes-object.he, .clothes-object.ea, .clothes-object.ha, .clothes-object.fa {
         background-position-y: -20px;   
     }  
@@ -172,32 +203,10 @@
         background-position-y: -70px;   
     }
     /* FIN */
-
-    .content_choix {
-        font-family: Roboto;
-        font-weight: lighter;
-        height: 74px;
-        border-bottom: 1px rgba(0,0,0,0.6) solid;
-        background-color: #E2E2E2;
-        padding: 20px;
-        margin-bottom: 40px;
-    }
     .content_choix > ul > li {
         display: inline-block;
         margin-right: 10px;
         cursor: pointer;
-    }
-    .content_choix > .sub {
-        display: none;
-    }  
-    .content_choix > ul.sub.selected {
-        display: block;   
-    }
-    .content_choix .sub {
-        display: none;
-    }
-    .content_choix ul.sub.selected > .sub {
-        display: inline-block;   
     }
 
 

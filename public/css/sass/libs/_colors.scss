@@ -47,11 +47,9 @@ $silver: silver;
 $bronze: #614e1a;
 
 // users
-$colorUsers: (
-    // Parameters
-    parameters: (
-        editor: #e2e2e2
-    )
+$colorUsersParams: (
+    // Parameters - Box, Selected look, Selected category
+    lookEditor: (#e2e2e2, rgba(0, 0, 0, .6), rgb(217 217 217))
 );
 
 // Bubbles (head, mess, text, icon)

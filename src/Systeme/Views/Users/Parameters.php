@@ -26,16 +26,14 @@ $form = new Form();
 
 <?php ob_start(); ?>
 
-<div class="box-infos">
+<div class="box-infos margin">
     <?php require_once Systeme::root(1). 'HTML/Users/Parameters/Infos.php'; ?>
 </div>
 
-<div class="look">
+<div class="box-look">
     <h2>Éditeur de look</h2>
 
-    <div class="box-look">
-        <?php require_once Systeme::root(1). 'HTML/Users/Parameters/Avatarimage.php'; ?>
-    </div>
+    <?php require_once Systeme::root(1). 'HTML/Users/Parameters/Avatarimage.php'; ?>
 </div>
 
 <?php $contentRight = ob_get_clean(); ?>

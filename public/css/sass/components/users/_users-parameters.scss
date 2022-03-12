@@ -65,3 +65,9 @@
         }
     }
 }
+
+.users-param .right {
+    .box-look {
+        background-color: deep-get($colorUsersParams, "lookEditor", 1);
+    }
+}
