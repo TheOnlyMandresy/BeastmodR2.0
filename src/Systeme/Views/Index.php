@@ -5,9 +5,7 @@ define('PAGE', 'index');
 
 <?php ob_start(); ?>
 
-<div class="box-posts">
-    <?php require_once Systeme::root(1). 'HTML/Index/SlideShow.php'; ?>
-</div>
+<?php require_once Systeme::root(1). 'HTML/Index/SlideShow.php'; ?>
 
 <div class="divided-2">
     <div class="left">

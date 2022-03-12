@@ -319,40 +319,40 @@ h2 {
   text-align: center;
   background-color: #ffffff;
 }
-.index .box-posts .slideshow {
+.index .slideshow {
   background-color: #ffffff;
   border-radius: 0.5em;
   overflow: hidden;
   height: 20vh;
 }
-.index .box-posts .slideshow .inMovement {
+.index .slideshow .inMovement {
   display: grid;
   height: 100%;
   grid-template-columns: repeat(3, 100%);
   transition: all 0.4s;
 }
-.index .box-posts .slideshow .post {
+.index .slideshow .post {
   padding: 1em;
   text-align: center;
   border-radius: 0.3em;
   background-position: center;
   height: 100%;
 }
-.index .box-posts .slideshow .post .texts {
+.index .slideshow .post .texts {
   position: absolute;
   bottom: 3em;
   left: 0;
   opacity: 0;
 }
-.index .box-posts .slideshow .post p {
+.index .slideshow .post p {
   text-shadow: 1px 1px 1px #333333;
   text-align: left;
   color: #FFFFFF;
 }
-.index .box-posts .slideshow .post .title {
+.index .slideshow .post .title {
   font-size: 3em;
 }
-.index .box-posts .slideshow .post.show .texts {
+.index .slideshow .post.show .texts {
   opacity: 1;
   left: 1em;
   transition: opacity 0.5s 0.5s, left 0.5s 0.5s;

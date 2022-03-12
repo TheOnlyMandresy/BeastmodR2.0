@@ -1,4 +1,4 @@
-<div class="slideshow">
+<div class="slideshow margin">
     <div class="inMovement" style="right: 0px;">
         <?php foreach($posts as $key => $post): ?>
             <a href="<?= $post->link; ?>" class="hover">
