@@ -152,7 +152,8 @@ class Form
         $currentDate = ($value === null)? Systeme::dateFormat('datetime', time()) : $date;
         $min = Systeme::dateFormat('datetime', time());
 
-        return 'value="' .$currentDate. '" min="' .$min. '"';
+        // return 'value="' .$currentDate. '" min="' .$min. '"';
+        return 'value="' .$currentDate. '"';
     }
 
     /**
